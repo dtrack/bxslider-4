@@ -80,7 +80,8 @@
 		onSlideBefore: function() {},
 		onSlideAfter: function() {},
 		onSlideNext: function() {},
-		onSlidePrev: function() {}
+		onSlidePrev: function() {},
+		onRedraw: function() {}
 	}
 
 	$.fn.bxSlider = function(options){
@@ -1272,6 +1273,12 @@
 				populatePager();
 				updatePagerActive(slider.active.index);
 			}
+			slider.settings.onRedraw({
+				outerWidth: slider.viewport.outerWidth(),
+				outerHeight: slider.viewport.outerHeight(),
+				width: slider.viewport.width(),
+				height: slider.viewport.height()
+			});
 		}
 
 		/**
